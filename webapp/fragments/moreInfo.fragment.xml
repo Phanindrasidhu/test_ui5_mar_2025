@@ -1,0 +1,14 @@
+<mvc:FragmentDefinition xmlns:mvc= "sap.ui.core" xmlns= "sap.m" xmlns:f = "sap.ui.layout.form">
+ <f:SimpleForm>
+     <f:content>
+        <Label text="Name" ></Label>
+            <Text text="{name}"></Text>
+            <Label text="Taste" ></Label>
+            <Text text="{taste}"></Text>
+            <Label text="Price" ></Label>
+            <Text text="{price}"></Text>
+            <Label text="Color" ></Label>
+            <Text text="{color}"></Text>
+    </f:content>
+</f:SimpleForm>
+</mvc:FragmentDefinition>
