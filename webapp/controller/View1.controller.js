@@ -63,6 +63,9 @@ sap.ui.define(
                 var oList = oEvent.getSource();
                 ///Delete the item now
                 oList.removeItem(oListItemToBeDeleted);
+            },
+            onAdd: function (oEvent){
+                this.oRouter.navTo("add");
 
             },
             onSearch: function(oEvent){
@@ -70,7 +73,7 @@ sap.ui.define(
                 var sValue = oEvent.getParameter('query');
                 //Step 2: Build a filter object - is like a IF condition
                 //        IF  op1 (name) OPERATOR (Contains)  op2 (sValue)
-                var oFilter1 = new Filter("name", FilterOperator.Contains, sValue);
+                var oFilter1 = new Filter("CATEGORY", FilterOperator.Contains, sValue);
                 var oFilter2 = new Filter("taste", FilterOperator.Contains, sValue);
                 //Step 3: Create Array
                 var aFilter = [oFilter1, oFilter2];
@@ -83,7 +86,7 @@ sap.ui.define(
                 var oList = this.getView().byId("idList");
                 var oBinding = oList.getBinding("items");
                 //Step 5: Push the filter inside the binding
-                oBinding.filter(oFilter);
+                oBinding.filter(oFilter1);
             }
         });
 });

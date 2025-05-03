@@ -1,4 +1,4 @@
-{
+{ "_version": "1.65.0",
     "sap.app":{
         "id": "ey.sd.sls",
         "type": "application",
@@ -8,7 +8,17 @@
         "ach": "FIN-ACC-AP",
         "title":"{{appTitle}}",
         "description":"{{appDescription}}",
-        "i18n": "i18n/i18n.properties"
+        "i18n": "i18n/i18n.properties",
+        "dataSources": {
+            "anubhavService":{
+                "uri": "/sap/opu/odata/sap/ZMAY_ODATA_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "odataVersion": "2.0"
+                }
+            }
+        }
     },
     "sap.ui": {
         "deviceTypes":{
@@ -19,7 +29,9 @@
         "supportedThemes": ["sap_horizon", "sap_fiori_3_dark"],
         "technology": "UI5"
     },
+
     "sap.ui5":{
+        "flexEnabled": false,
         "dependencies": {
             "minUI5Version": "1.100.2",
             "libs": {
@@ -56,11 +68,15 @@
                     "name": "spiderman",
                     "pattern": "fruits/{fruitId}",
                     "target": ["donald","modi"]
-                },
-                {
+                },{
                     "name": "supplier",
                     "pattern": "supplier/{suppId}",
-                    "target":["donald", "marco"]
+                    "target":["donald","macron"]
+                },
+                {
+                    "name": "add",
+                    "pattern": "manageProducts",
+                    "target":["donald","Kamala"]
                 }
             ],
             "targets": {
@@ -80,16 +96,28 @@
                     "controlAggregation": "detailPages",
                     "clearControlAggregation": true
                 },
-                "marco":{
+                "macron":{
                     "id": "idSupplier",
                     "viewName": "Supplier",
                     "controlAggregation": "detailPages",
                     "clearControlAggregation": true
+                },
+                "Kamala":{
+                    "id": "idAdd",
+                    "viewName": "add",
+                    "controlAggregation": "detailPages",
+                    "clearControlAggregation": true
                 }
+
             }
         },
         "models": {
             "":{
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "dataSource": "anubhavService",
+                "settings": {}
+            },
+            "oldmodel":{
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "model/mockdata/fruits.json"
             },

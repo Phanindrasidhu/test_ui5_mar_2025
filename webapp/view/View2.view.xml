@@ -4,9 +4,9 @@
     <Page title="View 2" showNavButton="true" navButtonPress="onBack">
         <!-- <Button id="idBtnBack" text="Back" press="onBack"/> -->
         <content>
-            <ObjectHeader title="{name}" icon="{image}"
-                          intro="{healthBenefit}"
-                          number="{price}" numberUnit="{curr}"
+            <ObjectHeader title="{PRODUCT_ID}" icon="{image}"
+                          intro="{DESCRIPTION}"
+                          number="{PRICE}" numberUnit="{CURRENCY_CODE}"
             ></ObjectHeader>
 
             <IconTabBar>

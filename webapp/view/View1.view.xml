@@ -6,7 +6,7 @@
         </headerContent>
         <content>
             <SearchField id="idSearch" search="onSearch"></SearchField>
-            <List id="idList" items="{/fruits}" selectionChange="onItemPress" mode="SingleSelectMaster"
+            <List id="idList" items="{/ProductSet}" growing="true" growingThreshold="10" selectionChange="onItemPress" mode="SingleSelectMaster"
              delete="onDeleteItem">
              <headerToolbar>
                 <Toolbar>
@@ -15,18 +15,15 @@
                 </Toolbar>
              </headerToolbar>
                 <items>
-                    <ObjectListItem title="{name}"
-                    intro="{healthBenefit}" 
-                    number="{price}" numberUnit="{curr}"
-                    icon="{image}">
+                    <ObjectListItem title="{PRODUCT_ID}" type="Navigation"
+                    intro="{DESCRIPTION}" 
+                    number="{PRICE}" numberUnit="{CURRENCY_CODE}"
+                    icon="sap-icon://product">
                         <attributes>
-                            <ObjectAttribute text="{taste}" title="Type"></ObjectAttribute>
+                            <ObjectAttribute text="{CATEGORY}" title="Type"></ObjectAttribute>
                         </attributes>
                         <firstStatus>
-                            <ObjectStatus text="{path : 'availability',
-                            formatter: '.formatter.getStatus'}" state="{
-                                                 path: 'availability',
-                                                 formatter: '.formatter.getStatusText'
+                            <ObjectStatus text="{path : 'SUPPLIER_NAME'
                             }"></ObjectStatus>
                         </firstStatus>
                     </ObjectListItem>
@@ -34,5 +31,11 @@
             </List>
             <!-- <Button id="idBtnNext" text="Next" press="onNext"/> -->
         </content>
+        <footer>
+          <Toolbar >
+              <ToolbarSpacer></ToolbarSpacer>
+                <Button icon="sap-icon://add" press="onAdd"/>
+          </Toolbar>
+        </footer>
     </Page>
 </mvc:View>

@@ -21,11 +21,13 @@ sap.ui.define(
                 //Step 1: extract the id
                 var sIndex = oEvent.getParameter("arguments").fruitId;
                 //Step 2: Rebuild the path
-                var sPath = "/fruits/" + sIndex;
+                var sPath = "/" + sIndex;
                 //Step 3: get the current view object
                 var oView2 = this.getView();
                 //Step 4: Bind the element
-                oView2.bindElement(sPath);
+                oView2.bindElement(sPath,{
+                    expand: 'To_Supplier'
+                });
 
                 //debugger;
             },
