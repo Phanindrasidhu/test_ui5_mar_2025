@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns:core= "sap.ui.core" xmlns= "sap.m">
+
+<!-- it is mandatory to select one item, first item is by default selected -->
+<!-- You cannot add custom item -->
+<Select items="{/cities}">
+    <items>
+        <core:Item text="{name}" key="{name}"/>
+    </items>
+</Select> 
+ 
+<!-- combobox allows us to enter black value, and a value which doesn't exist -->
+<!-- we can also feed our own value, its a combination of inp field and Dd -->
+<!-- <ComboBox items="{/cities}">
+      <items>
+         <core:Item text= "{name}" key= "{name}"/>
+      </items>
+</ComboBox> -->
+<ComboBox items="{/cities}">
+        <items>
+            <core:Item text="{name}" key="{name}"/>
+        </items>
+    </ComboBox>
+ <!-- we want to allow entering multiple values -->
+ <MultiComboBox  items= "{/cities}">
+           <items>
+               <core:Item text= "{name}" key= "{name}"/>
+           </items>
+ </MultiComboBox>
+
+</core:FragmentDefinition>
